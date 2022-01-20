@@ -121,13 +121,13 @@ namespace MainForm
 
             if (exclusiveControl != null)
             {
+                exclusiveControl.Arm = Arm;
+                exclusiveControl.LogHandler = LogHandler;
+                exclusiveControl.MessageHandler = MessageHandler;
+
                 _exclusiveControl = exclusiveControl;
                 _exclusiveControl.Location = new System.Drawing.Point(0, 0);
                 _exclusiveControl.Name = "ExclusiveControl";
-
-                _exclusiveControl.Arm = Arm;
-                _exclusiveControl.LogHandler = LogHandler;
-                _exclusiveControl.MessageHandler = MessageHandler;
 
                 tabControl_main.TabPages[1].Controls.Add(_exclusiveControl);
             }
