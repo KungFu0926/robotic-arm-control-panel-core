@@ -117,9 +117,6 @@
     <Compile Include="Connection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Contest.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Gripper.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,9 +175,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
