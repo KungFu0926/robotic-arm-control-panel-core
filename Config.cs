@@ -3,41 +3,51 @@
     /// <summary>
     /// 可調整之設定。
     /// </summary>
-    public static class Config
+    public class Config
     {
         /// <summary>
         /// 手臂連線IP位置。<br/>
         /// 設定錯誤將會無法連線。
         /// </summary>
-         public const string ArmIp = "192.168.100.126";
-        //public const string ArmIp = "169.254.119.180";
+        public virtual string ArmIp => "127.0.0.1";
 
         /// <summary>
         /// 手臂連線Port。<br/>
-        /// 設定錯誤將會無法連線。
+        /// 設定錯誤將會無法連線。<br/>
+        /// 上銀手臂無需設定該項。
         /// </summary>
-        public const int ArmPort = 3000;
+        public virtual int ArmPort => 3000;
+
+        /// <summary>
+        /// 啓用手臂。
+        /// </summary>
+        public virtual bool ArmEnable => true;
 
         /// <summary>
         /// 夾爪連線COM Port。<br/>
         /// 設定錯誤將會無法連線。
         /// </summary>
-        public const string GripperComPort = "COM12";
+        public virtual string GripperComPort => "COM1";
+
+        /// <summary>
+        /// 啓用夾爪。
+        /// </summary>
+        public virtual bool GripperEnable => false;
 
         /// <summary>
         /// 藍牙連線COM Port。<br/>
         /// 設定錯誤將會無法連線。
         /// </summary>
-        public const string BluetoothComPort = "COM21";
+        public virtual string BluetoothComPort => "COM2";
 
         /// <summary>
         /// CSV 檔案儲存路徑。
         /// </summary>
-        public const string CsvFilePath = "../../../../csv/";
+        public virtual string CsvFilePath => @"../../../../csv/";
 
         /// <summary>
         /// Log 檔案儲存路徑。
         /// </summary>
-        public const string LogFilePath = "../../../../log/";
+        public virtual string LogFilePath => @"../../../../log/";
     }
 }

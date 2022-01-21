@@ -58,6 +58,8 @@ namespace MainForm
         {
             InitializeComponent();
 
+            exclusiveControl = exclusiveControl ?? new ExclusiveControl();
+
             // 目標位置控制項集合。
             TargetPosition = new List<NumericUpDown>
             {
@@ -91,9 +93,9 @@ namespace MainForm
             };
 
             // 物件實體化。
-            LogHandler = new LogHandler(Config.LogFilePath, LoggingLevel.Trace);
+            LogHandler = new LogHandler(exclusiveControl.Config.LogFilePath, LoggingLevel.Trace);
             MessageHandler = new GeneralMessage(LogHandler);
-            Arm = new RASDK.Arm.Hiwin.RoboticArm(MessageHandler, Config.ArmIp);
+            Arm = new RASDK.Arm.Hiwin.RoboticArm(MessageHandler, exclusiveControl.Config.ArmIp);
             // Gripper = new GripperController(Configuration.GripperComPort, Message);
             // Bluetooth = new BluetoothArmController(Configuration.BluetoothComPort, Arm, Gripper, Message);
             // CsvHandler = new CsvHandler(Configuration.CsvFilePath);
@@ -105,7 +107,15 @@ namespace MainForm
             // Camera = new IDSCamera(Message);
 
             // 初始化可連線裝置組。
-            OrganizeConnectableDevices();
+            Devices.Clear(); // 請勿移除此行。
+            if (exclusiveControl.Config.ArmEnable)
+            {
+                Devices.Add(Arm);
+            }
+            if (exclusiveControl.Config.GripperEnable)
+            {
+                Devices.Add(Gripper);
+            }
 
             // 初始化動作流程。
             // ActionFlow.Clear();
@@ -119,18 +129,15 @@ namespace MainForm
 
             // PositionHandler.UpdateFileList();
 
-            if (exclusiveControl != null)
-            {
-                exclusiveControl.Arm = Arm;
-                exclusiveControl.LogHandler = LogHandler;
-                exclusiveControl.MessageHandler = MessageHandler;
+            exclusiveControl.Arm = Arm;
+            exclusiveControl.LogHandler = LogHandler;
+            exclusiveControl.MessageHandler = MessageHandler;
 
-                _exclusiveControl = exclusiveControl;
-                _exclusiveControl.Location = new System.Drawing.Point(0, 0);
-                _exclusiveControl.Name = "ExclusiveControl";
+            _exclusiveControl = exclusiveControl;
+            _exclusiveControl.Location = new System.Drawing.Point(0, 0);
+            _exclusiveControl.Name = "ExclusiveControl";
 
-                tabControl_main.TabPages[1].Controls.Add(_exclusiveControl);
-            }
+            tabControl_main.TabPages[1].Controls.Add(_exclusiveControl);
         }
 
         /// <summary>
@@ -141,7 +148,7 @@ namespace MainForm
 #if (!DISABLE_FORM_CLOSING)
             foreach (var device in Devices)
             {
-                if (device.Connected)
+                if (device == null ? false : device.Connected)
                 {
                     var dr = MessageHandler.Show("手臂或其它裝置似乎還在連線中。\r\n" +
                                                  "是否要斷開連線後再關閉視窗？",
