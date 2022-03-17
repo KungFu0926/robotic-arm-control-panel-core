@@ -33,6 +33,8 @@ namespace MainForm
         /// </summary>
         private readonly List<NumericUpDown> TargetPosition;
 
+        private readonly ExclusiveControl _exclusiveControl;
+
         /// <summary>
         /// 連線裝置組。
         /// </summary>
@@ -43,8 +45,6 @@ namespace MainForm
         /// </summary>
         private ILogHandler LogHandler;
 
-        private readonly ExclusiveControl _exclusiveControl;
-
         /// <summary>
         /// 手臂藍牙控制器。
         /// </summary>
@@ -52,7 +52,7 @@ namespace MainForm
         /// <summary>
         /// 訊息處理器。
         /// </summary>
-        private IMessage MessageHandler;
+        private IMessageHandler MessageHandler;
 
         public MainForm(ExclusiveControl exclusiveControl = null)
         {
@@ -94,7 +94,7 @@ namespace MainForm
 
             // 物件實體化。
             LogHandler = new LogHandler(exclusiveControl.Config.LogFilePath, LoggingLevel.Trace);
-            MessageHandler = new GeneralMessage(LogHandler);
+            MessageHandler = new GeneralMessageHandler(LogHandler);
             Arm = new RASDK.Arm.Hiwin.RoboticArm(MessageHandler, exclusiveControl.Config.ArmIp);
             // Gripper = new GripperController(Configuration.GripperComPort, Message);
             // Bluetooth = new BluetoothArmController(Configuration.BluetoothComPort, Arm, Gripper, Message);

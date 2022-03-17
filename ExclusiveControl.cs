@@ -8,13 +8,13 @@ namespace MainForm
         public RASDK.Arm.RoboticArm Arm;
         public RASDK.Gripper.IGripperController Gripper;
         public RASDK.Basic.ILogHandler LogHandler;
-        public RASDK.Basic.Message.IMessage MessageHandler;
-
-        public Config Config { get; protected set; } = new Config();
+        public RASDK.Basic.Message.IMessageHandler MessageHandler;
 
         public ExclusiveControl()
         {
             InitializeComponent();
         }
+
+        public Config Config { get; protected set; } = new Config();
     }
 }
