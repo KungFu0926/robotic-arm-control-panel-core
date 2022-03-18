@@ -7,8 +7,8 @@ namespace MainForm
     {
         public RASDK.Arm.RoboticArm Arm;
         public RASDK.Gripper.IGripperController Gripper;
-        public RASDK.Basic.ILogHandler LogHandler;
-        public RASDK.Basic.Message.IMessageHandler MessageHandler;
+        public RASDK.Basic.LogHandler LogHandler;
+        public RASDK.Basic.Message.MessageHandler MessageHandler;
 
         public ExclusiveControl()
         {

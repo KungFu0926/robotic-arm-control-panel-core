@@ -43,7 +43,7 @@ namespace MainForm
         /// <summary>
         /// Log 檔處理器。
         /// </summary>
-        private ILogHandler LogHandler;
+        private LogHandler LogHandler;
 
         /// <summary>
         /// 手臂藍牙控制器。
@@ -52,7 +52,7 @@ namespace MainForm
         /// <summary>
         /// 訊息處理器。
         /// </summary>
-        private IMessageHandler MessageHandler;
+        private MessageHandler MessageHandler;
 
         public MainForm(ExclusiveControl exclusiveControl = null)
         {
@@ -93,7 +93,7 @@ namespace MainForm
             };
 
             // 物件實體化。
-            LogHandler = new LogHandler(exclusiveControl.Config.LogFilePath, LoggingLevel.Trace);
+            LogHandler = new GeneralLogHandler(exclusiveControl.Config.LogFilePath, LoggingLevel.Trace);
             MessageHandler = new GeneralMessageHandler(LogHandler);
             Arm = new RASDK.Arm.Hiwin.RoboticArm(MessageHandler, exclusiveControl.Config.ArmIp);
             // Gripper = new GripperController(Configuration.GripperComPort, Message);
