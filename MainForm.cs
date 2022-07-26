@@ -148,7 +148,12 @@ namespace MainForm
 #if (!DISABLE_FORM_CLOSING)
             foreach (var device in Devices)
             {
-                if (device == null ? false : device.Connected)
+                if (device == null)
+                {
+                    continue;
+                }
+
+                if (device.Connected)
                 {
                     var dr = MessageHandler.Show("手臂或其它裝置似乎還在連線中。\r\n" +
                                                  "是否要斷開連線後再關閉視窗？",
