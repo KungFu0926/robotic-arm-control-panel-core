@@ -1,5 +1,5 @@
 ﻿//#define DISABLE_SHOW_MESSAGE
-//#define DISABLE_FORM_CLOSING
+#define DISABLE_FORM_CLOSING
 
 #if (DISABLE_SHOW_MESSAGE)
 #warning Message is disabled.
