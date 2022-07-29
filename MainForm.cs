@@ -7,6 +7,7 @@
 
 using RASDK.Basic;
 using RASDK.Basic.Message;
+using RASDK.Arm;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -49,6 +50,7 @@ namespace MainForm
         /// 手臂藍牙控制器。
         /// </summary>
         // private IBluetoothController Bluetooth = null;
+
         /// <summary>
         /// 訊息處理器。
         /// </summary>
