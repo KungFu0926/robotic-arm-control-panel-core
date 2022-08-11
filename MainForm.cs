@@ -199,6 +199,18 @@ namespace MainForm
             }
         }
 
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+            Arm.SetRobotOutput(1, true);
+            Arm.SetRobotOutput(2, false);
+        }
+
+        private void button2_Click(object sender, System.EventArgs e)
+        {
+            Arm.SetRobotOutput(1, true);
+            Arm.SetRobotOutput(2, true);
+        }
+
         /// <summary>
         /// 位置記錄處理器。
         /// </summary>
