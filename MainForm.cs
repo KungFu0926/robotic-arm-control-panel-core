@@ -95,9 +95,9 @@ namespace MainForm
             };
 
             // 物件實體化。
-            LogHandler = new GeneralLogHandler(exclusiveControl.Config.LogFilePath, LoggingLevel.Trace);
-            MessageHandler = new GeneralMessageHandler(LogHandler);
-            Arm = new RASDK.Arm.Hiwin.RoboticArm(MessageHandler, exclusiveControl.Config.ArmIp);
+            LogHandler = LogHandler ?? new GeneralLogHandler(exclusiveControl.Config.LogFilePath, LoggingLevel.Trace);
+            MessageHandler = MessageHandler ?? new GeneralMessageHandler(LogHandler);
+            Arm = Arm ?? new RASDK.Arm.Hiwin.RoboticArm(MessageHandler, exclusiveControl.Config.ArmIp);
             // Gripper = new GripperController(Configuration.GripperComPort, Message);
             // Bluetooth = new BluetoothArmController(Configuration.BluetoothComPort, Arm, Gripper, Message);
             // CsvHandler = new CsvHandler(Configuration.CsvFilePath);
