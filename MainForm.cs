@@ -136,10 +136,10 @@ namespace MainForm
             exclusiveControl.MessageHandler = MessageHandler;
 
             _exclusiveControl = exclusiveControl;
-            _exclusiveControl.Location = new System.Drawing.Point(0, 0);
             _exclusiveControl.Name = "ExclusiveControl";
-
-            tabControl_main.TabPages[1].Controls.Add(_exclusiveControl);
+            _exclusiveControl.Location = new System.Drawing.Point(0, 0);
+            _exclusiveControl.Dock = DockStyle.Fill;
+            tableLayoutPanel15.Controls.Add(_exclusiveControl, 1, 0);
         }
 
         /// <summary>

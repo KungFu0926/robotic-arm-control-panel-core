@@ -28,7 +28,16 @@ namespace MainForm
             switch (GetPositionType())
             {
                 case PositionType.Absolute:
-                    SetTargetPosition(GetNowUiPosition());
+                    {
+                        try
+                        {
+                            SetTargetPosition(GetNowUiPosition());
+                        }
+                        catch
+                        {
+                            return;
+                        }
+                    }
                     break;
 
                 case PositionType.Relative:
@@ -54,16 +63,9 @@ namespace MainForm
         private double[] GetNowUiPosition()
         {
             var position = new double[6];
-            try
+            for (var i = 0; i < 6; i++)
             {
-                for (var i = 0; i < 6; i++)
-                {
-                    position[i] = Convert.ToDouble(NowPosition[i].Text);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageHandler.Show(ex, LoggingLevel.Error);
+                position[i] = Convert.ToDouble(NowPosition[i].Text);
             }
             return position;
         }
@@ -198,8 +200,18 @@ namespace MainForm
             if (radioButton_position_type_relative.Checked)
             {
                 SetTargetPosition(new double[] { 0, 0, 0, 0, 0, 0 });
+                return;
             }
-            else if (Arm.Connected)
+
+            var connected = false;
+            try
+            {
+                connected = Arm.Connected;
+            }
+            catch
+            { }
+
+            if (connected)
             {
                 var coordinateType = GetCoordinateType();
                 var nowPosition = Arm.GetNowPosition(coordinateType);
@@ -293,14 +305,30 @@ namespace MainForm
         }
 
         /// <summary>
-        /// 所選的位置類型改變。
+        /// 所選的位置類型（絕對/相對位置）改變。
         /// </summary>
         private void PositionTypeChange()
         {
             if (radioButton_position_type_absolute.Checked)
             {
                 button_arm_copy_position_from_now_to_target.Text = "複製";
-                SetTargetPosition(GetNowUiPosition());
+                var cor = GetCoordinateType();
+                try
+                {
+                    var pos = Arm.GetNowPosition(cor);
+                    SetTargetPosition(pos);
+                }
+                catch
+                {
+                    if (cor == CoordinateType.Descartes)
+                    {
+                        SetTargetPosition(RASDK.Arm.Hiwin.Default.DescartesHomePosition);
+                    }
+                    else if (cor == CoordinateType.Joint)
+                    {
+                        SetTargetPosition(RASDK.Arm.Hiwin.Default.JointHomePosition);
+                    }
+                }
             }
             else if (radioButton_position_type_relative.Checked)
             {
@@ -389,15 +417,5 @@ namespace MainForm
         }
 
         #endregion 速度與加速度
-
-        /// <summary>
-        /// 清除手臂錯誤訊息。
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button_arm_clear_alarm_Click(object sender, EventArgs e)
-        {
-            // Arm.ClearAlarm();
-        }
     }
 }

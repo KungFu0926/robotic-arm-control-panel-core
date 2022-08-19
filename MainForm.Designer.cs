@@ -80,9 +80,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.numericUpDown_arm_acceleration = new System.Windows.Forms.NumericUpDown();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.button_gripper_action = new System.Windows.Forms.Button();
             this.numericUpDown_gripper_position = new System.Windows.Forms.NumericUpDown();
@@ -92,6 +90,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.numericUpDown_gripper_speed = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_gripper_force = new System.Windows.Forms.NumericUpDown();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.buttonGripperOpen = new System.Windows.Forms.Button();
+            this.buttonGripperClose = new System.Windows.Forms.Button();
             this.tabControl_sub = new System.Windows.Forms.TabControl();
             this.tabPage_sub_inching = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -109,8 +110,7 @@
             this.numericUpDown_inching_xy = new System.Windows.Forms.NumericUpDown();
             this.tabPage_sub_position_record = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.button_position_record_read = new System.Windows.Forms.Button();
+            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.listView_position_record = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -122,6 +122,8 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.button_position_record_read = new System.Windows.Forms.Button();
             this.groupBox_position_record = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.button_position_recode = new System.Windows.Forms.Button();
@@ -150,11 +152,10 @@
             this.button_camera_choose = new System.Windows.Forms.Button();
             this.button_camera_snapshot = new System.Windows.Forms.Button();
             this.pictureBox_camera = new System.Windows.Forms.PictureBox();
-            this.tabControl_main = new System.Windows.Forms.TabControl();
-            this.tabPage_basic_control = new System.Windows.Forms.TabPage();
-            this.tabPage_exclusive_control = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.tabPage_sub_gripper = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox_connect_disconnect.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -176,13 +177,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_arm_speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_arm_acceleration)).BeginInit();
             this.groupBox6.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_gripper_position)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_gripper_speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_gripper_force)).BeginInit();
+            this.groupBox9.SuspendLayout();
             this.tabControl_sub.SuspendLayout();
             this.tabPage_sub_inching.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -191,6 +191,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_inching_xy)).BeginInit();
             this.tabPage_sub_position_record.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.tableLayoutPanel16.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.groupBox_position_record.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -201,8 +202,10 @@
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_camera)).BeginInit();
-            this.tabControl_main.SuspendLayout();
-            this.tabPage_basic_control.SuspendLayout();
+            this.tabPage_sub_gripper.SuspendLayout();
+            this.tableLayoutPanel15.SuspendLayout();
+            this.tableLayoutPanel17.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_connect
@@ -210,7 +213,7 @@
             this.button_connect.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button_connect.Location = new System.Drawing.Point(3, 3);
             this.button_connect.Name = "button_connect";
-            this.button_connect.Size = new System.Drawing.Size(102, 50);
+            this.button_connect.Size = new System.Drawing.Size(147, 51);
             this.button_connect.TabIndex = 0;
             this.button_connect.Text = "Connect";
             this.button_connect.UseVisualStyleBackColor = true;
@@ -219,9 +222,9 @@
             // button_disconnect
             // 
             this.button_disconnect.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_disconnect.Location = new System.Drawing.Point(111, 3);
+            this.button_disconnect.Location = new System.Drawing.Point(156, 3);
             this.button_disconnect.Name = "button_disconnect";
-            this.button_disconnect.Size = new System.Drawing.Size(102, 50);
+            this.button_disconnect.Size = new System.Drawing.Size(147, 51);
             this.button_disconnect.TabIndex = 1;
             this.button_disconnect.Text = "Disconnect";
             this.button_disconnect.UseVisualStyleBackColor = true;
@@ -230,9 +233,9 @@
             // button_arm_motion_start
             // 
             this.button_arm_motion_start.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_arm_motion_start.Location = new System.Drawing.Point(18, 6);
+            this.button_arm_motion_start.Location = new System.Drawing.Point(19, 8);
             this.button_arm_motion_start.Name = "button_arm_motion_start";
-            this.button_arm_motion_start.Size = new System.Drawing.Size(91, 32);
+            this.button_arm_motion_start.Size = new System.Drawing.Size(113, 44);
             this.button_arm_motion_start.TabIndex = 2;
             this.button_arm_motion_start.Text = "進行動作";
             this.button_arm_motion_start.UseVisualStyleBackColor = true;
@@ -241,9 +244,10 @@
             // groupBox_connect_disconnect
             // 
             this.groupBox_connect_disconnect.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox_connect_disconnect.Location = new System.Drawing.Point(12, 12);
+            this.groupBox_connect_disconnect.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox_connect_disconnect.Location = new System.Drawing.Point(3, 3);
             this.groupBox_connect_disconnect.Name = "groupBox_connect_disconnect";
-            this.groupBox_connect_disconnect.Size = new System.Drawing.Size(330, 80);
+            this.groupBox_connect_disconnect.Size = new System.Drawing.Size(467, 81);
             this.groupBox_connect_disconnect.TabIndex = 3;
             this.groupBox_connect_disconnect.TabStop = false;
             this.groupBox_connect_disconnect.Text = "連線與斷線";
@@ -262,19 +266,19 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(324, 56);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(461, 57);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // button_arm_clear_alarm
             // 
             this.button_arm_clear_alarm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_arm_clear_alarm.Location = new System.Drawing.Point(219, 3);
+            this.button_arm_clear_alarm.Enabled = false;
+            this.button_arm_clear_alarm.Location = new System.Drawing.Point(309, 3);
             this.button_arm_clear_alarm.Name = "button_arm_clear_alarm";
-            this.button_arm_clear_alarm.Size = new System.Drawing.Size(102, 50);
+            this.button_arm_clear_alarm.Size = new System.Drawing.Size(149, 51);
             this.button_arm_clear_alarm.TabIndex = 2;
             this.button_arm_clear_alarm.Text = "Clear Alarm";
             this.button_arm_clear_alarm.UseVisualStyleBackColor = true;
-            this.button_arm_clear_alarm.Click += new System.EventHandler(this.button_arm_clear_alarm_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -295,7 +299,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(695, 97);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(665, 101);
             this.tableLayoutPanel3.TabIndex = 5;
             // 
             // groupBox3
@@ -303,9 +307,9 @@
             this.groupBox3.Controls.Add(this.radioButton_coordinate_type_descartes);
             this.groupBox3.Controls.Add(this.radioButton_coordinate_type_joint);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(269, 3);
+            this.groupBox3.Location = new System.Drawing.Point(257, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(127, 91);
+            this.groupBox3.Size = new System.Drawing.Size(121, 95);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "座標類型";
@@ -341,7 +345,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(127, 91);
+            this.groupBox1.Size = new System.Drawing.Size(121, 95);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "運動類型";
@@ -373,9 +377,9 @@
             this.groupBox2.Controls.Add(this.radioButton_position_type_absolute);
             this.groupBox2.Controls.Add(this.radioButton_position_type_relative);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(136, 3);
+            this.groupBox2.Location = new System.Drawing.Point(130, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(127, 91);
+            this.groupBox2.Size = new System.Drawing.Size(121, 95);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "位置類型";
@@ -411,20 +415,20 @@
             this.tableLayoutPanel4.Controls.Add(this.button_arm_motion_start, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.button_update_now_position, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(432, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(414, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(127, 91);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(121, 95);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // button_update_now_position
             // 
             this.button_update_now_position.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_update_now_position.Location = new System.Drawing.Point(18, 51);
+            this.button_update_now_position.Location = new System.Drawing.Point(15, 53);
             this.button_update_now_position.Name = "button_update_now_position";
-            this.button_update_now_position.Size = new System.Drawing.Size(91, 33);
+            this.button_update_now_position.Size = new System.Drawing.Size(113, 44);
             this.button_update_now_position.TabIndex = 3;
             this.button_update_now_position.Text = "更新位置";
             this.button_update_now_position.UseVisualStyleBackColor = true;
@@ -435,9 +439,9 @@
             this.groupBox4.Controls.Add(this.checkBox_arm_to_zero_slow);
             this.groupBox4.Controls.Add(this.button_arm_homing);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(565, 3);
+            this.groupBox4.Location = new System.Drawing.Point(541, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(127, 91);
+            this.groupBox4.Size = new System.Drawing.Size(121, 95);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "原點";
@@ -447,18 +451,20 @@
             this.checkBox_arm_to_zero_slow.AutoSize = true;
             this.checkBox_arm_to_zero_slow.Checked = true;
             this.checkBox_arm_to_zero_slow.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_arm_to_zero_slow.Location = new System.Drawing.Point(19, 60);
+            this.checkBox_arm_to_zero_slow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkBox_arm_to_zero_slow.Location = new System.Drawing.Point(3, 54);
             this.checkBox_arm_to_zero_slow.Name = "checkBox_arm_to_zero_slow";
-            this.checkBox_arm_to_zero_slow.Size = new System.Drawing.Size(93, 19);
+            this.checkBox_arm_to_zero_slow.Size = new System.Drawing.Size(115, 19);
             this.checkBox_arm_to_zero_slow.TabIndex = 1;
             this.checkBox_arm_to_zero_slow.Text = "以5%速度";
             this.checkBox_arm_to_zero_slow.UseVisualStyleBackColor = true;
             // 
             // button_arm_homing
             // 
-            this.button_arm_homing.Location = new System.Drawing.Point(19, 22);
+            this.button_arm_homing.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button_arm_homing.Location = new System.Drawing.Point(3, 21);
             this.button_arm_homing.Name = "button_arm_homing";
-            this.button_arm_homing.Size = new System.Drawing.Size(93, 32);
+            this.button_arm_homing.Size = new System.Drawing.Size(115, 33);
             this.button_arm_homing.TabIndex = 0;
             this.button_arm_homing.Text = "回到原點";
             this.button_arm_homing.UseVisualStyleBackColor = true;
@@ -467,10 +473,10 @@
             // groupBox_arm_position
             // 
             this.groupBox_arm_position.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox_arm_position.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox_arm_position.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox_arm_position.Location = new System.Drawing.Point(3, 3);
             this.groupBox_arm_position.Name = "groupBox_arm_position";
-            this.groupBox_arm_position.Size = new System.Drawing.Size(701, 178);
+            this.groupBox_arm_position.Size = new System.Drawing.Size(671, 148);
             this.groupBox_arm_position.TabIndex = 0;
             this.groupBox_arm_position.TabStop = false;
             this.groupBox_arm_position.Text = "位置";
@@ -513,14 +519,14 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(695, 154);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(665, 124);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label_arm_now_positin
             // 
             this.label_arm_now_positin.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label_arm_now_positin.AutoSize = true;
-            this.label_arm_now_positin.Location = new System.Drawing.Point(14, 22);
+            this.label_arm_now_positin.Location = new System.Drawing.Point(11, 15);
             this.label_arm_now_positin.Name = "label_arm_now_positin";
             this.label_arm_now_positin.Size = new System.Drawing.Size(52, 15);
             this.label_arm_now_positin.TabIndex = 0;
@@ -530,7 +536,7 @@
             // 
             this.label_arm_target_position.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label_arm_target_position.AutoSize = true;
-            this.label_arm_target_position.Location = new System.Drawing.Point(14, 116);
+            this.label_arm_target_position.Location = new System.Drawing.Point(11, 94);
             this.label_arm_target_position.Name = "label_arm_target_position";
             this.label_arm_target_position.Size = new System.Drawing.Size(52, 15);
             this.label_arm_target_position.TabIndex = 0;
@@ -540,7 +546,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(104, 69);
+            this.label1.Location = new System.Drawing.Point(99, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 15);
             this.label1.TabIndex = 1;
@@ -550,7 +556,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(208, 69);
+            this.label2.Location = new System.Drawing.Point(198, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 15);
             this.label2.TabIndex = 1;
@@ -560,7 +566,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(313, 69);
+            this.label3.Location = new System.Drawing.Point(297, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 15);
             this.label3.TabIndex = 1;
@@ -570,7 +576,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(416, 69);
+            this.label4.Location = new System.Drawing.Point(396, 54);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 15);
             this.label4.TabIndex = 1;
@@ -580,7 +586,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(521, 69);
+            this.label5.Location = new System.Drawing.Point(495, 54);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 15);
             this.label5.TabIndex = 1;
@@ -590,7 +596,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(626, 69);
+            this.label6.Location = new System.Drawing.Point(597, 54);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 15);
             this.label6.TabIndex = 1;
@@ -599,54 +605,54 @@
             // textBox_arm_now_position_j1x
             // 
             this.textBox_arm_now_position_j1x.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_arm_now_position_j1x.Location = new System.Drawing.Point(72, 17);
+            this.textBox_arm_now_position_j1x.Location = new System.Drawing.Point(69, 10);
             this.textBox_arm_now_position_j1x.Name = "textBox_arm_now_position_j1x";
-            this.textBox_arm_now_position_j1x.Size = new System.Drawing.Size(98, 25);
+            this.textBox_arm_now_position_j1x.Size = new System.Drawing.Size(93, 25);
             this.textBox_arm_now_position_j1x.TabIndex = 2;
             this.textBox_arm_now_position_j1x.Text = "--";
             // 
             // textBox_arm_now_position_j2y
             // 
             this.textBox_arm_now_position_j2y.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_arm_now_position_j2y.Location = new System.Drawing.Point(176, 17);
+            this.textBox_arm_now_position_j2y.Location = new System.Drawing.Point(168, 10);
             this.textBox_arm_now_position_j2y.Name = "textBox_arm_now_position_j2y";
-            this.textBox_arm_now_position_j2y.Size = new System.Drawing.Size(98, 25);
+            this.textBox_arm_now_position_j2y.Size = new System.Drawing.Size(93, 25);
             this.textBox_arm_now_position_j2y.TabIndex = 2;
             this.textBox_arm_now_position_j2y.Text = "--";
             // 
             // textBox_arm_now_position_j3z
             // 
             this.textBox_arm_now_position_j3z.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_arm_now_position_j3z.Location = new System.Drawing.Point(280, 17);
+            this.textBox_arm_now_position_j3z.Location = new System.Drawing.Point(267, 10);
             this.textBox_arm_now_position_j3z.Name = "textBox_arm_now_position_j3z";
-            this.textBox_arm_now_position_j3z.Size = new System.Drawing.Size(98, 25);
+            this.textBox_arm_now_position_j3z.Size = new System.Drawing.Size(93, 25);
             this.textBox_arm_now_position_j3z.TabIndex = 2;
             this.textBox_arm_now_position_j3z.Text = "--";
             // 
             // textBox_arm_now_position_j4a
             // 
             this.textBox_arm_now_position_j4a.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_arm_now_position_j4a.Location = new System.Drawing.Point(384, 17);
+            this.textBox_arm_now_position_j4a.Location = new System.Drawing.Point(366, 10);
             this.textBox_arm_now_position_j4a.Name = "textBox_arm_now_position_j4a";
-            this.textBox_arm_now_position_j4a.Size = new System.Drawing.Size(98, 25);
+            this.textBox_arm_now_position_j4a.Size = new System.Drawing.Size(93, 25);
             this.textBox_arm_now_position_j4a.TabIndex = 2;
             this.textBox_arm_now_position_j4a.Text = "--";
             // 
             // textBox_arm_now_position_j5b
             // 
             this.textBox_arm_now_position_j5b.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_arm_now_position_j5b.Location = new System.Drawing.Point(488, 17);
+            this.textBox_arm_now_position_j5b.Location = new System.Drawing.Point(465, 10);
             this.textBox_arm_now_position_j5b.Name = "textBox_arm_now_position_j5b";
-            this.textBox_arm_now_position_j5b.Size = new System.Drawing.Size(98, 25);
+            this.textBox_arm_now_position_j5b.Size = new System.Drawing.Size(93, 25);
             this.textBox_arm_now_position_j5b.TabIndex = 2;
             this.textBox_arm_now_position_j5b.Text = "--";
             // 
             // textBox_arm_now_position_j6c
             // 
             this.textBox_arm_now_position_j6c.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_arm_now_position_j6c.Location = new System.Drawing.Point(592, 17);
+            this.textBox_arm_now_position_j6c.Location = new System.Drawing.Point(564, 10);
             this.textBox_arm_now_position_j6c.Name = "textBox_arm_now_position_j6c";
-            this.textBox_arm_now_position_j6c.Size = new System.Drawing.Size(100, 25);
+            this.textBox_arm_now_position_j6c.Size = new System.Drawing.Size(98, 25);
             this.textBox_arm_now_position_j6c.TabIndex = 2;
             this.textBox_arm_now_position_j6c.Text = "--";
             // 
@@ -659,7 +665,7 @@
             0,
             0,
             0});
-            this.numericUpDown_arm_target_position_j1x.Location = new System.Drawing.Point(72, 111);
+            this.numericUpDown_arm_target_position_j1x.Location = new System.Drawing.Point(69, 89);
             this.numericUpDown_arm_target_position_j1x.Maximum = new decimal(new int[] {
             700,
             0,
@@ -671,7 +677,7 @@
             0,
             -2147483648});
             this.numericUpDown_arm_target_position_j1x.Name = "numericUpDown_arm_target_position_j1x";
-            this.numericUpDown_arm_target_position_j1x.Size = new System.Drawing.Size(98, 25);
+            this.numericUpDown_arm_target_position_j1x.Size = new System.Drawing.Size(93, 25);
             this.numericUpDown_arm_target_position_j1x.TabIndex = 3;
             // 
             // numericUpDown_arm_target_position_j2y
@@ -683,7 +689,7 @@
             0,
             0,
             0});
-            this.numericUpDown_arm_target_position_j2y.Location = new System.Drawing.Point(176, 111);
+            this.numericUpDown_arm_target_position_j2y.Location = new System.Drawing.Point(168, 89);
             this.numericUpDown_arm_target_position_j2y.Maximum = new decimal(new int[] {
             700,
             0,
@@ -695,7 +701,7 @@
             0,
             -2147483648});
             this.numericUpDown_arm_target_position_j2y.Name = "numericUpDown_arm_target_position_j2y";
-            this.numericUpDown_arm_target_position_j2y.Size = new System.Drawing.Size(98, 25);
+            this.numericUpDown_arm_target_position_j2y.Size = new System.Drawing.Size(93, 25);
             this.numericUpDown_arm_target_position_j2y.TabIndex = 3;
             this.numericUpDown_arm_target_position_j2y.Value = new decimal(new int[] {
             368,
@@ -712,7 +718,7 @@
             0,
             0,
             0});
-            this.numericUpDown_arm_target_position_j3z.Location = new System.Drawing.Point(280, 111);
+            this.numericUpDown_arm_target_position_j3z.Location = new System.Drawing.Point(267, 89);
             this.numericUpDown_arm_target_position_j3z.Maximum = new decimal(new int[] {
             500,
             0,
@@ -724,7 +730,7 @@
             0,
             -2147483648});
             this.numericUpDown_arm_target_position_j3z.Name = "numericUpDown_arm_target_position_j3z";
-            this.numericUpDown_arm_target_position_j3z.Size = new System.Drawing.Size(98, 25);
+            this.numericUpDown_arm_target_position_j3z.Size = new System.Drawing.Size(93, 25);
             this.numericUpDown_arm_target_position_j3z.TabIndex = 3;
             this.numericUpDown_arm_target_position_j3z.Value = new decimal(new int[] {
             294,
@@ -741,7 +747,7 @@
             0,
             0,
             0});
-            this.numericUpDown_arm_target_position_j4a.Location = new System.Drawing.Point(384, 111);
+            this.numericUpDown_arm_target_position_j4a.Location = new System.Drawing.Point(366, 89);
             this.numericUpDown_arm_target_position_j4a.Maximum = new decimal(new int[] {
             700,
             0,
@@ -753,7 +759,7 @@
             0,
             -2147483648});
             this.numericUpDown_arm_target_position_j4a.Name = "numericUpDown_arm_target_position_j4a";
-            this.numericUpDown_arm_target_position_j4a.Size = new System.Drawing.Size(98, 25);
+            this.numericUpDown_arm_target_position_j4a.Size = new System.Drawing.Size(93, 25);
             this.numericUpDown_arm_target_position_j4a.TabIndex = 3;
             this.numericUpDown_arm_target_position_j4a.Value = new decimal(new int[] {
             180,
@@ -770,7 +776,7 @@
             0,
             0,
             0});
-            this.numericUpDown_arm_target_position_j5b.Location = new System.Drawing.Point(488, 111);
+            this.numericUpDown_arm_target_position_j5b.Location = new System.Drawing.Point(465, 89);
             this.numericUpDown_arm_target_position_j5b.Maximum = new decimal(new int[] {
             700,
             0,
@@ -782,7 +788,7 @@
             0,
             -2147483648});
             this.numericUpDown_arm_target_position_j5b.Name = "numericUpDown_arm_target_position_j5b";
-            this.numericUpDown_arm_target_position_j5b.Size = new System.Drawing.Size(98, 25);
+            this.numericUpDown_arm_target_position_j5b.Size = new System.Drawing.Size(93, 25);
             this.numericUpDown_arm_target_position_j5b.TabIndex = 3;
             // 
             // numericUpDown_arm_target_position_j6c
@@ -794,7 +800,7 @@
             0,
             0,
             0});
-            this.numericUpDown_arm_target_position_j6c.Location = new System.Drawing.Point(592, 111);
+            this.numericUpDown_arm_target_position_j6c.Location = new System.Drawing.Point(564, 89);
             this.numericUpDown_arm_target_position_j6c.Maximum = new decimal(new int[] {
             700,
             0,
@@ -806,7 +812,7 @@
             0,
             -2147483648});
             this.numericUpDown_arm_target_position_j6c.Name = "numericUpDown_arm_target_position_j6c";
-            this.numericUpDown_arm_target_position_j6c.Size = new System.Drawing.Size(100, 25);
+            this.numericUpDown_arm_target_position_j6c.Size = new System.Drawing.Size(98, 25);
             this.numericUpDown_arm_target_position_j6c.TabIndex = 3;
             this.numericUpDown_arm_target_position_j6c.Value = new decimal(new int[] {
             90,
@@ -817,9 +823,9 @@
             // button_arm_copy_position_from_now_to_target
             // 
             this.button_arm_copy_position_from_now_to_target.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.button_arm_copy_position_from_now_to_target.Location = new System.Drawing.Point(3, 63);
+            this.button_arm_copy_position_from_now_to_target.Location = new System.Drawing.Point(3, 48);
             this.button_arm_copy_position_from_now_to_target.Name = "button_arm_copy_position_from_now_to_target";
-            this.button_arm_copy_position_from_now_to_target.Size = new System.Drawing.Size(63, 28);
+            this.button_arm_copy_position_from_now_to_target.Size = new System.Drawing.Size(60, 28);
             this.button_arm_copy_position_from_now_to_target.TabIndex = 4;
             this.button_arm_copy_position_from_now_to_target.Text = "複製";
             this.button_arm_copy_position_from_now_to_target.UseVisualStyleBackColor = true;
@@ -828,10 +834,10 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.tableLayoutPanel5);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox5.Location = new System.Drawing.Point(3, 302);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(3, 288);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(701, 100);
+            this.groupBox5.Size = new System.Drawing.Size(671, 94);
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "速度與加速度";
@@ -856,7 +862,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(695, 76);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(665, 70);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // numericUpDown_arm_speed
@@ -867,14 +873,14 @@
             0,
             0,
             0});
-            this.numericUpDown_arm_speed.Location = new System.Drawing.Point(138, 25);
+            this.numericUpDown_arm_speed.Location = new System.Drawing.Point(132, 22);
             this.numericUpDown_arm_speed.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numericUpDown_arm_speed.Name = "numericUpDown_arm_speed";
-            this.numericUpDown_arm_speed.Size = new System.Drawing.Size(129, 25);
+            this.numericUpDown_arm_speed.Size = new System.Drawing.Size(123, 25);
             this.numericUpDown_arm_speed.TabIndex = 0;
             this.numericUpDown_arm_speed.Value = new decimal(new int[] {
             10,
@@ -885,9 +891,9 @@
             // button_set_speed_acceleration
             // 
             this.button_set_speed_acceleration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_set_speed_acceleration.Location = new System.Drawing.Point(563, 26);
+            this.button_set_speed_acceleration.Location = new System.Drawing.Point(539, 13);
             this.button_set_speed_acceleration.Name = "button_set_speed_acceleration";
-            this.button_set_speed_acceleration.Size = new System.Drawing.Size(129, 24);
+            this.button_set_speed_acceleration.Size = new System.Drawing.Size(123, 44);
             this.button_set_speed_acceleration.TabIndex = 1;
             this.button_set_speed_acceleration.Text = "設定";
             this.button_set_speed_acceleration.UseVisualStyleBackColor = true;
@@ -897,7 +903,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(80, 30);
+            this.label7.Location = new System.Drawing.Point(74, 27);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 15);
             this.label7.TabIndex = 1;
@@ -907,7 +913,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(335, 30);
+            this.label8.Location = new System.Drawing.Point(317, 27);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 15);
             this.label8.TabIndex = 1;
@@ -921,14 +927,14 @@
             0,
             0,
             0});
-            this.numericUpDown_arm_acceleration.Location = new System.Drawing.Point(408, 25);
+            this.numericUpDown_arm_acceleration.Location = new System.Drawing.Point(390, 22);
             this.numericUpDown_arm_acceleration.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numericUpDown_arm_acceleration.Name = "numericUpDown_arm_acceleration";
-            this.numericUpDown_arm_acceleration.Size = new System.Drawing.Size(129, 25);
+            this.numericUpDown_arm_acceleration.Size = new System.Drawing.Size(123, 25);
             this.numericUpDown_arm_acceleration.TabIndex = 0;
             this.numericUpDown_arm_acceleration.Value = new decimal(new int[] {
             10,
@@ -939,47 +945,23 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.tableLayoutPanel3);
-            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox6.Location = new System.Drawing.Point(3, 181);
+            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox6.Location = new System.Drawing.Point(3, 157);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(701, 121);
+            this.groupBox6.Size = new System.Drawing.Size(671, 125);
             this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "動作";
             // 
-            // tabControl1
+            // groupBox10
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(5, 5);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(715, 472);
-            this.tabControl1.TabIndex = 5;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.groupBox5);
-            this.tabPage1.Controls.Add(this.groupBox6);
-            this.tabPage1.Controls.Add(this.groupBox_arm_position);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(707, 443);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "手臂";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.tableLayoutPanel6);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(707, 443);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "夾爪";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.groupBox10.Controls.Add(this.tableLayoutPanel6);
+            this.groupBox10.Location = new System.Drawing.Point(9, 13);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(376, 358);
+            this.groupBox10.TabIndex = 9;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "XEG";
             // 
             // tableLayoutPanel6
             // 
@@ -994,20 +976,21 @@
             this.tableLayoutPanel6.Controls.Add(this.label11, 0, 3);
             this.tableLayoutPanel6.Controls.Add(this.numericUpDown_gripper_speed, 1, 2);
             this.tableLayoutPanel6.Controls.Add(this.numericUpDown_gripper_force, 1, 3);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(37, 44);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 21);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 4;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(253, 244);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(370, 334);
             this.tableLayoutPanel6.TabIndex = 2;
             // 
             // button_gripper_action
             // 
             this.button_gripper_action.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_gripper_action.Location = new System.Drawing.Point(152, 18);
+            this.button_gripper_action.Location = new System.Drawing.Point(240, 29);
             this.button_gripper_action.Name = "button_gripper_action";
             this.button_gripper_action.Size = new System.Drawing.Size(75, 24);
             this.button_gripper_action.TabIndex = 3;
@@ -1023,14 +1006,14 @@
             0,
             0,
             0});
-            this.numericUpDown_gripper_position.Location = new System.Drawing.Point(129, 79);
+            this.numericUpDown_gripper_position.Location = new System.Drawing.Point(188, 112);
             this.numericUpDown_gripper_position.Maximum = new decimal(new int[] {
             3200,
             0,
             0,
             0});
             this.numericUpDown_gripper_position.Name = "numericUpDown_gripper_position";
-            this.numericUpDown_gripper_position.Size = new System.Drawing.Size(121, 25);
+            this.numericUpDown_gripper_position.Size = new System.Drawing.Size(179, 25);
             this.numericUpDown_gripper_position.TabIndex = 1;
             this.numericUpDown_gripper_position.Value = new decimal(new int[] {
             2000,
@@ -1041,7 +1024,7 @@
             // button_gripper_reset
             // 
             this.button_gripper_reset.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_gripper_reset.Location = new System.Drawing.Point(25, 18);
+            this.button_gripper_reset.Location = new System.Drawing.Point(55, 29);
             this.button_gripper_reset.Name = "button_gripper_reset";
             this.button_gripper_reset.Size = new System.Drawing.Size(75, 24);
             this.button_gripper_reset.TabIndex = 0;
@@ -1053,7 +1036,7 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(71, 84);
+            this.label9.Location = new System.Drawing.Point(130, 117);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 15);
             this.label9.TabIndex = 4;
@@ -1063,7 +1046,7 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(71, 145);
+            this.label10.Location = new System.Drawing.Point(130, 200);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 15);
             this.label10.TabIndex = 4;
@@ -1073,7 +1056,7 @@
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(71, 206);
+            this.label11.Location = new System.Drawing.Point(130, 284);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(52, 15);
             this.label11.TabIndex = 4;
@@ -1087,7 +1070,7 @@
             0,
             0,
             0});
-            this.numericUpDown_gripper_speed.Location = new System.Drawing.Point(129, 140);
+            this.numericUpDown_gripper_speed.Location = new System.Drawing.Point(188, 195);
             this.numericUpDown_gripper_speed.Maximum = new decimal(new int[] {
             80,
             0,
@@ -1099,7 +1082,7 @@
             0,
             0});
             this.numericUpDown_gripper_speed.Name = "numericUpDown_gripper_speed";
-            this.numericUpDown_gripper_speed.Size = new System.Drawing.Size(121, 25);
+            this.numericUpDown_gripper_speed.Size = new System.Drawing.Size(179, 25);
             this.numericUpDown_gripper_speed.TabIndex = 1;
             this.numericUpDown_gripper_speed.Value = new decimal(new int[] {
             50,
@@ -1115,9 +1098,9 @@
             0,
             0,
             0});
-            this.numericUpDown_gripper_force.Location = new System.Drawing.Point(129, 201);
+            this.numericUpDown_gripper_force.Location = new System.Drawing.Point(188, 279);
             this.numericUpDown_gripper_force.Name = "numericUpDown_gripper_force";
-            this.numericUpDown_gripper_force.Size = new System.Drawing.Size(121, 25);
+            this.numericUpDown_gripper_force.Size = new System.Drawing.Size(179, 25);
             this.numericUpDown_gripper_force.TabIndex = 1;
             this.numericUpDown_gripper_force.Value = new decimal(new int[] {
             70,
@@ -1125,17 +1108,50 @@
             0,
             0});
             // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.buttonGripperOpen);
+            this.groupBox9.Controls.Add(this.buttonGripperClose);
+            this.groupBox9.Location = new System.Drawing.Point(397, 13);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(195, 153);
+            this.groupBox9.TabIndex = 9;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "SEG";
+            // 
+            // buttonGripperOpen
+            // 
+            this.buttonGripperOpen.Location = new System.Drawing.Point(35, 24);
+            this.buttonGripperOpen.Name = "buttonGripperOpen";
+            this.buttonGripperOpen.Size = new System.Drawing.Size(134, 47);
+            this.buttonGripperOpen.TabIndex = 8;
+            this.buttonGripperOpen.Text = "Open";
+            this.buttonGripperOpen.UseVisualStyleBackColor = true;
+            this.buttonGripperOpen.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonGripperClose
+            // 
+            this.buttonGripperClose.Location = new System.Drawing.Point(35, 77);
+            this.buttonGripperClose.Name = "buttonGripperClose";
+            this.buttonGripperClose.Size = new System.Drawing.Size(134, 47);
+            this.buttonGripperClose.TabIndex = 8;
+            this.buttonGripperClose.Text = "Close";
+            this.buttonGripperClose.UseVisualStyleBackColor = true;
+            this.buttonGripperClose.Click += new System.EventHandler(this.button2_Click);
+            // 
             // tabControl_sub
             // 
             this.tabControl_sub.Controls.Add(this.tabPage_sub_inching);
             this.tabControl_sub.Controls.Add(this.tabPage_sub_position_record);
             this.tabControl_sub.Controls.Add(this.tabPage_sub_actionflow);
             this.tabControl_sub.Controls.Add(this.tabPage_sub_camera);
-            this.tabControl_sub.Location = new System.Drawing.Point(725, 5);
+            this.tabControl_sub.Controls.Add(this.tabPage_sub_gripper);
+            this.tabControl_sub.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl_sub.Location = new System.Drawing.Point(2, 387);
             this.tabControl_sub.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl_sub.Name = "tabControl_sub";
             this.tabControl_sub.SelectedIndex = 0;
-            this.tabControl_sub.Size = new System.Drawing.Size(666, 472);
+            this.tabControl_sub.Size = new System.Drawing.Size(673, 382);
             this.tabControl_sub.TabIndex = 6;
             // 
             // tabPage_sub_inching
@@ -1145,7 +1161,7 @@
             this.tabPage_sub_inching.Location = new System.Drawing.Point(4, 25);
             this.tabPage_sub_inching.Name = "tabPage_sub_inching";
             this.tabPage_sub_inching.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_sub_inching.Size = new System.Drawing.Size(658, 443);
+            this.tabPage_sub_inching.Size = new System.Drawing.Size(665, 353);
             this.tabPage_sub_inching.TabIndex = 2;
             this.tabPage_sub_inching.Text = "寸動微調";
             this.tabPage_sub_inching.UseVisualStyleBackColor = true;
@@ -1155,7 +1171,7 @@
             this.groupBox8.Controls.Add(this.radioButtonInchingModeContinuousWide);
             this.groupBox8.Controls.Add(this.radioButtonInchingModeContinuousNarrow);
             this.groupBox8.Controls.Add(this.radioButtonInchingModeSingle);
-            this.groupBox8.Location = new System.Drawing.Point(41, 302);
+            this.groupBox8.Location = new System.Drawing.Point(405, 6);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(137, 135);
             this.groupBox8.TabIndex = 1;
@@ -1197,11 +1213,11 @@
             // tableLayoutPanel11
             // 
             this.tableLayoutPanel11.ColumnCount = 5;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23F));
             this.tableLayoutPanel11.Controls.Add(this.button_inching_negative_z, 4, 2);
             this.tableLayoutPanel11.Controls.Add(this.button_inching_positive_z, 4, 0);
             this.tableLayoutPanel11.Controls.Add(this.button_inching_negative_y, 1, 2);
@@ -1210,21 +1226,21 @@
             this.tableLayoutPanel11.Controls.Add(this.button_inching_positive_y, 1, 0);
             this.tableLayoutPanel11.Controls.Add(this.numericUpDown_inching_z, 4, 1);
             this.tableLayoutPanel11.Controls.Add(this.numericUpDown_inching_xy, 1, 1);
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(41, 37);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(6, 6);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 3;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(496, 247);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(393, 247);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
             // button_inching_negative_z
             // 
             this.button_inching_negative_z.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_inching_negative_z.Location = new System.Drawing.Point(399, 184);
+            this.button_inching_negative_z.Location = new System.Drawing.Point(304, 184);
             this.button_inching_negative_z.Name = "button_inching_negative_z";
-            this.button_inching_negative_z.Size = new System.Drawing.Size(94, 42);
+            this.button_inching_negative_z.Size = new System.Drawing.Size(86, 42);
             this.button_inching_negative_z.TabIndex = 0;
             this.button_inching_negative_z.Text = "Z-";
             this.button_inching_negative_z.UseVisualStyleBackColor = true;
@@ -1234,9 +1250,9 @@
             // button_inching_positive_z
             // 
             this.button_inching_positive_z.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_inching_positive_z.Location = new System.Drawing.Point(399, 20);
+            this.button_inching_positive_z.Location = new System.Drawing.Point(304, 20);
             this.button_inching_positive_z.Name = "button_inching_positive_z";
-            this.button_inching_positive_z.Size = new System.Drawing.Size(94, 42);
+            this.button_inching_positive_z.Size = new System.Drawing.Size(86, 42);
             this.button_inching_positive_z.TabIndex = 0;
             this.button_inching_positive_z.Text = "Z+";
             this.button_inching_positive_z.UseVisualStyleBackColor = true;
@@ -1246,9 +1262,9 @@
             // button_inching_negative_y
             // 
             this.button_inching_negative_y.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_inching_negative_y.Location = new System.Drawing.Point(102, 184);
+            this.button_inching_negative_y.Location = new System.Drawing.Point(93, 184);
             this.button_inching_negative_y.Name = "button_inching_negative_y";
-            this.button_inching_negative_y.Size = new System.Drawing.Size(93, 42);
+            this.button_inching_negative_y.Size = new System.Drawing.Size(84, 42);
             this.button_inching_negative_y.TabIndex = 0;
             this.button_inching_negative_y.Text = "Y-";
             this.button_inching_negative_y.UseVisualStyleBackColor = true;
@@ -1258,9 +1274,9 @@
             // button_inching_positive_x
             // 
             this.button_inching_positive_x.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_inching_positive_x.Location = new System.Drawing.Point(201, 102);
+            this.button_inching_positive_x.Location = new System.Drawing.Point(183, 102);
             this.button_inching_positive_x.Name = "button_inching_positive_x";
-            this.button_inching_positive_x.Size = new System.Drawing.Size(93, 42);
+            this.button_inching_positive_x.Size = new System.Drawing.Size(84, 42);
             this.button_inching_positive_x.TabIndex = 0;
             this.button_inching_positive_x.Text = "X+";
             this.button_inching_positive_x.UseVisualStyleBackColor = true;
@@ -1272,7 +1288,7 @@
             this.button_inching_negative_x.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.button_inching_negative_x.Location = new System.Drawing.Point(3, 102);
             this.button_inching_negative_x.Name = "button_inching_negative_x";
-            this.button_inching_negative_x.Size = new System.Drawing.Size(93, 42);
+            this.button_inching_negative_x.Size = new System.Drawing.Size(84, 42);
             this.button_inching_negative_x.TabIndex = 0;
             this.button_inching_negative_x.Text = "X-";
             this.button_inching_negative_x.UseVisualStyleBackColor = true;
@@ -1282,9 +1298,9 @@
             // button_inching_positive_y
             // 
             this.button_inching_positive_y.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_inching_positive_y.Location = new System.Drawing.Point(102, 20);
+            this.button_inching_positive_y.Location = new System.Drawing.Point(93, 20);
             this.button_inching_positive_y.Name = "button_inching_positive_y";
-            this.button_inching_positive_y.Size = new System.Drawing.Size(93, 42);
+            this.button_inching_positive_y.Size = new System.Drawing.Size(84, 42);
             this.button_inching_positive_y.TabIndex = 0;
             this.button_inching_positive_y.Text = "Y+";
             this.button_inching_positive_y.UseVisualStyleBackColor = true;
@@ -1295,9 +1311,9 @@
             // 
             this.numericUpDown_inching_z.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown_inching_z.DecimalPlaces = 3;
-            this.numericUpDown_inching_z.Location = new System.Drawing.Point(399, 110);
+            this.numericUpDown_inching_z.Location = new System.Drawing.Point(304, 110);
             this.numericUpDown_inching_z.Name = "numericUpDown_inching_z";
-            this.numericUpDown_inching_z.Size = new System.Drawing.Size(94, 25);
+            this.numericUpDown_inching_z.Size = new System.Drawing.Size(86, 25);
             this.numericUpDown_inching_z.TabIndex = 1;
             this.numericUpDown_inching_z.Value = new decimal(new int[] {
             5,
@@ -1309,9 +1325,9 @@
             // 
             this.numericUpDown_inching_xy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown_inching_xy.DecimalPlaces = 3;
-            this.numericUpDown_inching_xy.Location = new System.Drawing.Point(102, 110);
+            this.numericUpDown_inching_xy.Location = new System.Drawing.Point(93, 110);
             this.numericUpDown_inching_xy.Name = "numericUpDown_inching_xy";
-            this.numericUpDown_inching_xy.Size = new System.Drawing.Size(93, 25);
+            this.numericUpDown_inching_xy.Size = new System.Drawing.Size(84, 25);
             this.numericUpDown_inching_xy.TabIndex = 1;
             this.numericUpDown_inching_xy.Value = new decimal(new int[] {
             10,
@@ -1327,53 +1343,39 @@
             this.tabPage_sub_position_record.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage_sub_position_record.Name = "tabPage_sub_position_record";
             this.tabPage_sub_position_record.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage_sub_position_record.Size = new System.Drawing.Size(658, 443);
+            this.tabPage_sub_position_record.Size = new System.Drawing.Size(665, 353);
             this.tabPage_sub_position_record.TabIndex = 0;
             this.tabPage_sub_position_record.Text = "位置記錄";
             this.tabPage_sub_position_record.UseVisualStyleBackColor = true;
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.tableLayoutPanel8);
-            this.groupBox7.Controls.Add(this.listView_position_record);
+            this.groupBox7.Controls.Add(this.tableLayoutPanel16);
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox7.Location = new System.Drawing.Point(2, 2);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox7.Size = new System.Drawing.Size(654, 361);
+            this.groupBox7.Size = new System.Drawing.Size(661, 271);
             this.groupBox7.TabIndex = 3;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "讀取";
             // 
-            // tableLayoutPanel8
+            // tableLayoutPanel16
             // 
-            this.tableLayoutPanel8.ColumnCount = 4;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.Controls.Add(this.button_position_record_read, 0, 0);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(2, 311);
-            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(2);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 1;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(650, 48);
-            this.tableLayoutPanel8.TabIndex = 7;
-            // 
-            // button_position_record_read
-            // 
-            this.button_position_record_read.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_position_record_read.Location = new System.Drawing.Point(12, 6);
-            this.button_position_record_read.Margin = new System.Windows.Forms.Padding(2);
-            this.button_position_record_read.Name = "button_position_record_read";
-            this.button_position_record_read.Size = new System.Drawing.Size(73, 36);
-            this.button_position_record_read.TabIndex = 0;
-            this.button_position_record_read.Text = "讀取";
-            this.button_position_record_read.UseVisualStyleBackColor = true;
-            this.button_position_record_read.Click += new System.EventHandler(this.button_position_record_read_Click);
+            this.tableLayoutPanel16.ColumnCount = 1;
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel16.Controls.Add(this.listView_position_record, 0, 0);
+            this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel8, 0, 1);
+            this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(2, 20);
+            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
+            this.tableLayoutPanel16.RowCount = 2;
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(657, 249);
+            this.tableLayoutPanel16.TabIndex = 7;
             // 
             // listView_position_record
             // 
@@ -1388,15 +1390,15 @@
             this.columnHeader8,
             this.columnHeader9,
             this.columnHeader10});
-            this.listView_position_record.Dock = System.Windows.Forms.DockStyle.Top;
+            this.listView_position_record.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView_position_record.FullRowSelect = true;
             this.listView_position_record.GridLines = true;
             this.listView_position_record.HideSelection = false;
-            this.listView_position_record.Location = new System.Drawing.Point(2, 20);
+            this.listView_position_record.Location = new System.Drawing.Point(2, 2);
             this.listView_position_record.Margin = new System.Windows.Forms.Padding(2);
             this.listView_position_record.MultiSelect = false;
             this.listView_position_record.Name = "listView_position_record";
-            this.listView_position_record.Size = new System.Drawing.Size(650, 292);
+            this.listView_position_record.Size = new System.Drawing.Size(653, 195);
             this.listView_position_record.TabIndex = 2;
             this.listView_position_record.UseCompatibleStateImageBehavior = false;
             this.listView_position_record.View = System.Windows.Forms.View.Details;
@@ -1441,15 +1443,44 @@
             // 
             this.columnHeader10.Text = "Remark";
             // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 4;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel8.Controls.Add(this.button_position_record_read, 0, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(2, 201);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(653, 46);
+            this.tableLayoutPanel8.TabIndex = 7;
+            // 
+            // button_position_record_read
+            // 
+            this.button_position_record_read.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_position_record_read.Location = new System.Drawing.Point(12, 5);
+            this.button_position_record_read.Margin = new System.Windows.Forms.Padding(2);
+            this.button_position_record_read.Name = "button_position_record_read";
+            this.button_position_record_read.Size = new System.Drawing.Size(73, 36);
+            this.button_position_record_read.TabIndex = 0;
+            this.button_position_record_read.Text = "讀取";
+            this.button_position_record_read.UseVisualStyleBackColor = true;
+            this.button_position_record_read.Click += new System.EventHandler(this.button_position_record_read_Click);
+            // 
             // groupBox_position_record
             // 
             this.groupBox_position_record.Controls.Add(this.tableLayoutPanel7);
             this.groupBox_position_record.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox_position_record.Location = new System.Drawing.Point(2, 363);
+            this.groupBox_position_record.Location = new System.Drawing.Point(2, 273);
             this.groupBox_position_record.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox_position_record.Name = "groupBox_position_record";
             this.groupBox_position_record.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox_position_record.Size = new System.Drawing.Size(654, 78);
+            this.groupBox_position_record.Size = new System.Drawing.Size(661, 78);
             this.groupBox_position_record.TabIndex = 1;
             this.groupBox_position_record.TabStop = false;
             this.groupBox_position_record.Text = "記錄";
@@ -1473,13 +1504,13 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(650, 56);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(657, 56);
             this.tableLayoutPanel7.TabIndex = 2;
             // 
             // button_position_recode
             // 
             this.button_position_recode.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_position_recode.Location = new System.Drawing.Point(587, 13);
+            this.button_position_recode.Location = new System.Drawing.Point(593, 13);
             this.button_position_recode.Margin = new System.Windows.Forms.Padding(2);
             this.button_position_recode.Name = "button_position_recode";
             this.button_position_recode.Size = new System.Drawing.Size(60, 30);
@@ -1492,7 +1523,7 @@
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(271, 20);
+            this.label12.Location = new System.Drawing.Point(273, 20);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(52, 15);
@@ -1516,17 +1547,17 @@
             this.textBox_position_record_name.Location = new System.Drawing.Point(67, 15);
             this.textBox_position_record_name.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_position_record_name.Name = "textBox_position_record_name";
-            this.textBox_position_record_name.Size = new System.Drawing.Size(191, 25);
+            this.textBox_position_record_name.Size = new System.Drawing.Size(193, 25);
             this.textBox_position_record_name.TabIndex = 0;
             this.textBox_position_record_name.Text = "位置記錄";
             // 
             // textBox_position_record_comment
             // 
             this.textBox_position_record_comment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_position_record_comment.Location = new System.Drawing.Point(327, 15);
+            this.textBox_position_record_comment.Location = new System.Drawing.Point(329, 15);
             this.textBox_position_record_comment.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_position_record_comment.Name = "textBox_position_record_comment";
-            this.textBox_position_record_comment.Size = new System.Drawing.Size(256, 25);
+            this.textBox_position_record_comment.Size = new System.Drawing.Size(258, 25);
             this.textBox_position_record_comment.TabIndex = 2;
             // 
             // tabPage_sub_actionflow
@@ -1535,7 +1566,7 @@
             this.tabPage_sub_actionflow.Location = new System.Drawing.Point(4, 25);
             this.tabPage_sub_actionflow.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage_sub_actionflow.Name = "tabPage_sub_actionflow";
-            this.tabPage_sub_actionflow.Size = new System.Drawing.Size(658, 443);
+            this.tabPage_sub_actionflow.Size = new System.Drawing.Size(665, 353);
             this.tabPage_sub_actionflow.TabIndex = 1;
             this.tabPage_sub_actionflow.Text = "動作流程";
             this.tabPage_sub_actionflow.UseVisualStyleBackColor = true;
@@ -1553,7 +1584,7 @@
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(658, 443);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(665, 353);
             this.tableLayoutPanel9.TabIndex = 2;
             // 
             // listView_actionflow_actions
@@ -1569,7 +1600,7 @@
             this.listView_actionflow_actions.Location = new System.Drawing.Point(2, 2);
             this.listView_actionflow_actions.Margin = new System.Windows.Forms.Padding(2);
             this.listView_actionflow_actions.Name = "listView_actionflow_actions";
-            this.listView_actionflow_actions.Size = new System.Drawing.Size(659, 372);
+            this.listView_actionflow_actions.Size = new System.Drawing.Size(856, 297);
             this.listView_actionflow_actions.TabIndex = 2;
             this.listView_actionflow_actions.UseCompatibleStateImageBehavior = false;
             this.listView_actionflow_actions.View = System.Windows.Forms.View.Details;
@@ -1601,12 +1632,12 @@
             this.tableLayoutPanel10.Controls.Add(this.button_actionflow_do_selected, 2, 0);
             this.tableLayoutPanel10.Controls.Add(this.checkBox_actionflow_showMsg, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(2, 378);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(2, 302);
             this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(659, 63);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(856, 49);
             this.tableLayoutPanel10.TabIndex = 3;
             // 
             // checkBox_actionflow_autoNext
@@ -1615,9 +1646,9 @@
             this.checkBox_actionflow_autoNext.AutoSize = true;
             this.checkBox_actionflow_autoNext.Checked = true;
             this.checkBox_actionflow_autoNext.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_actionflow_autoNext.Location = new System.Drawing.Point(147, 22);
+            this.checkBox_actionflow_autoNext.Location = new System.Drawing.Point(191, 18);
             this.checkBox_actionflow_autoNext.Name = "checkBox_actionflow_autoNext";
-            this.checkBox_actionflow_autoNext.Size = new System.Drawing.Size(138, 19);
+            this.checkBox_actionflow_autoNext.Size = new System.Drawing.Size(182, 19);
             this.checkBox_actionflow_autoNext.TabIndex = 7;
             this.checkBox_actionflow_autoNext.Text = "Auto Next";
             this.checkBox_actionflow_autoNext.UseVisualStyleBackColor = true;
@@ -1626,7 +1657,7 @@
             // button_actionflow_do_all
             // 
             this.button_actionflow_do_all.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_actionflow_do_all.Location = new System.Drawing.Point(518, 6);
+            this.button_actionflow_do_all.Location = new System.Drawing.Point(688, 2);
             this.button_actionflow_do_all.Margin = new System.Windows.Forms.Padding(2);
             this.button_actionflow_do_all.Name = "button_actionflow_do_all";
             this.button_actionflow_do_all.Size = new System.Drawing.Size(94, 51);
@@ -1638,7 +1669,7 @@
             // button_actionflow_do_selected
             // 
             this.button_actionflow_do_selected.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_actionflow_do_selected.Location = new System.Drawing.Point(333, 6);
+            this.button_actionflow_do_selected.Location = new System.Drawing.Point(448, 2);
             this.button_actionflow_do_selected.Margin = new System.Windows.Forms.Padding(2);
             this.button_actionflow_do_selected.Name = "button_actionflow_do_selected";
             this.button_actionflow_do_selected.Size = new System.Drawing.Size(94, 51);
@@ -1653,9 +1684,9 @@
             this.checkBox_actionflow_showMsg.AutoSize = true;
             this.checkBox_actionflow_showMsg.Checked = true;
             this.checkBox_actionflow_showMsg.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_actionflow_showMsg.Location = new System.Drawing.Point(3, 22);
+            this.checkBox_actionflow_showMsg.Location = new System.Drawing.Point(3, 18);
             this.checkBox_actionflow_showMsg.Name = "checkBox_actionflow_showMsg";
-            this.checkBox_actionflow_showMsg.Size = new System.Drawing.Size(138, 19);
+            this.checkBox_actionflow_showMsg.Size = new System.Drawing.Size(182, 19);
             this.checkBox_actionflow_showMsg.TabIndex = 8;
             this.checkBox_actionflow_showMsg.Text = "Show Msg";
             this.checkBox_actionflow_showMsg.UseVisualStyleBackColor = true;
@@ -1667,7 +1698,7 @@
             this.tabPage_sub_camera.Location = new System.Drawing.Point(4, 25);
             this.tabPage_sub_camera.Name = "tabPage_sub_camera";
             this.tabPage_sub_camera.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_sub_camera.Size = new System.Drawing.Size(658, 443);
+            this.tabPage_sub_camera.Size = new System.Drawing.Size(665, 353);
             this.tabPage_sub_camera.TabIndex = 3;
             this.tabPage_sub_camera.Text = "攝影機";
             this.tabPage_sub_camera.UseVisualStyleBackColor = true;
@@ -1684,7 +1715,7 @@
             this.tableLayoutPanel12.RowCount = 2;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(652, 437);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(659, 347);
             this.tableLayoutPanel12.TabIndex = 0;
             // 
             // tableLayoutPanel13
@@ -1700,12 +1731,12 @@
             this.tableLayoutPanel13.Controls.Add(this.button_camera_choose, 1, 0);
             this.tableLayoutPanel13.Controls.Add(this.button_camera_snapshot, 2, 0);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 330);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 263);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 2;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(646, 104);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(653, 81);
             this.tableLayoutPanel13.TabIndex = 7;
             // 
             // checkBox_camera_freerun
@@ -1714,9 +1745,9 @@
             this.checkBox_camera_freerun.AutoSize = true;
             this.checkBox_camera_freerun.Checked = true;
             this.checkBox_camera_freerun.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_camera_freerun.Location = new System.Drawing.Point(433, 68);
+            this.checkBox_camera_freerun.Location = new System.Drawing.Point(437, 51);
             this.checkBox_camera_freerun.Name = "checkBox_camera_freerun";
-            this.checkBox_camera_freerun.Size = new System.Drawing.Size(210, 19);
+            this.checkBox_camera_freerun.Size = new System.Drawing.Size(213, 19);
             this.checkBox_camera_freerun.TabIndex = 8;
             this.checkBox_camera_freerun.Text = "Free Run";
             this.checkBox_camera_freerun.UseVisualStyleBackColor = true;
@@ -1726,7 +1757,7 @@
             this.button_camera_open.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.button_camera_open.Location = new System.Drawing.Point(3, 11);
             this.button_camera_open.Name = "button_camera_open";
-            this.button_camera_open.Size = new System.Drawing.Size(209, 30);
+            this.button_camera_open.Size = new System.Drawing.Size(211, 18);
             this.button_camera_open.TabIndex = 8;
             this.button_camera_open.Text = "開啟";
             this.button_camera_open.UseVisualStyleBackColor = true;
@@ -1734,9 +1765,9 @@
             // button_camera_setting
             // 
             this.button_camera_setting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_camera_setting.Location = new System.Drawing.Point(218, 63);
+            this.button_camera_setting.Location = new System.Drawing.Point(220, 51);
             this.button_camera_setting.Name = "button_camera_setting";
-            this.button_camera_setting.Size = new System.Drawing.Size(209, 30);
+            this.button_camera_setting.Size = new System.Drawing.Size(211, 19);
             this.button_camera_setting.TabIndex = 8;
             this.button_camera_setting.Text = "設定";
             this.button_camera_setting.UseVisualStyleBackColor = true;
@@ -1744,9 +1775,9 @@
             // button_camera_close
             // 
             this.button_camera_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_camera_close.Location = new System.Drawing.Point(3, 63);
+            this.button_camera_close.Location = new System.Drawing.Point(3, 51);
             this.button_camera_close.Name = "button_camera_close";
-            this.button_camera_close.Size = new System.Drawing.Size(209, 30);
+            this.button_camera_close.Size = new System.Drawing.Size(211, 19);
             this.button_camera_close.TabIndex = 7;
             this.button_camera_close.Text = "關閉";
             this.button_camera_close.UseVisualStyleBackColor = true;
@@ -1754,9 +1785,9 @@
             // button_camera_choose
             // 
             this.button_camera_choose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_camera_choose.Location = new System.Drawing.Point(218, 11);
+            this.button_camera_choose.Location = new System.Drawing.Point(220, 11);
             this.button_camera_choose.Name = "button_camera_choose";
-            this.button_camera_choose.Size = new System.Drawing.Size(209, 30);
+            this.button_camera_choose.Size = new System.Drawing.Size(211, 18);
             this.button_camera_choose.TabIndex = 8;
             this.button_camera_choose.Text = "選擇";
             this.button_camera_choose.UseVisualStyleBackColor = true;
@@ -1764,9 +1795,9 @@
             // button_camera_snapshot
             // 
             this.button_camera_snapshot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_camera_snapshot.Location = new System.Drawing.Point(433, 11);
+            this.button_camera_snapshot.Location = new System.Drawing.Point(437, 11);
             this.button_camera_snapshot.Name = "button_camera_snapshot";
-            this.button_camera_snapshot.Size = new System.Drawing.Size(210, 30);
+            this.button_camera_snapshot.Size = new System.Drawing.Size(213, 18);
             this.button_camera_snapshot.TabIndex = 8;
             this.button_camera_snapshot.Text = "快照";
             this.button_camera_snapshot.UseVisualStyleBackColor = true;
@@ -1776,74 +1807,75 @@
             this.pictureBox_camera.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox_camera.Location = new System.Drawing.Point(3, 3);
             this.pictureBox_camera.Name = "pictureBox_camera";
-            this.pictureBox_camera.Size = new System.Drawing.Size(646, 321);
+            this.pictureBox_camera.Size = new System.Drawing.Size(653, 254);
             this.pictureBox_camera.TabIndex = 0;
             this.pictureBox_camera.TabStop = false;
             // 
-            // tabControl_main
+            // tabPage_sub_gripper
             // 
-            this.tabControl_main.Controls.Add(this.tabPage_basic_control);
-            this.tabControl_main.Controls.Add(this.tabPage_exclusive_control);
-            this.tabControl_main.Location = new System.Drawing.Point(12, 97);
-            this.tabControl_main.Margin = new System.Windows.Forms.Padding(2);
-            this.tabControl_main.Name = "tabControl_main";
-            this.tabControl_main.SelectedIndex = 0;
-            this.tabControl_main.Size = new System.Drawing.Size(1463, 569);
-            this.tabControl_main.TabIndex = 7;
+            this.tabPage_sub_gripper.Controls.Add(this.groupBox9);
+            this.tabPage_sub_gripper.Controls.Add(this.groupBox10);
+            this.tabPage_sub_gripper.Location = new System.Drawing.Point(4, 25);
+            this.tabPage_sub_gripper.Name = "tabPage_sub_gripper";
+            this.tabPage_sub_gripper.Size = new System.Drawing.Size(665, 353);
+            this.tabPage_sub_gripper.TabIndex = 4;
+            this.tabPage_sub_gripper.Text = "夾爪";
+            this.tabPage_sub_gripper.UseVisualStyleBackColor = true;
             // 
-            // tabPage_basic_control
+            // tableLayoutPanel15
             // 
-            this.tabPage_basic_control.Controls.Add(this.tabControl1);
-            this.tabPage_basic_control.Controls.Add(this.tabControl_sub);
-            this.tabPage_basic_control.Location = new System.Drawing.Point(4, 25);
-            this.tabPage_basic_control.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage_basic_control.Name = "tabPage_basic_control";
-            this.tabPage_basic_control.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage_basic_control.Size = new System.Drawing.Size(1455, 540);
-            this.tabPage_basic_control.TabIndex = 0;
-            this.tabPage_basic_control.Text = "基本";
-            this.tabPage_basic_control.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel15.ColumnCount = 2;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel17, 0, 0);
+            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 90);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 1;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(1709, 777);
+            this.tableLayoutPanel15.TabIndex = 7;
             // 
-            // tabPage_exclusive_control
+            // tableLayoutPanel17
             // 
-            this.tabPage_exclusive_control.Location = new System.Drawing.Point(4, 25);
-            this.tabPage_exclusive_control.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage_exclusive_control.Name = "tabPage_exclusive_control";
-            this.tabPage_exclusive_control.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage_exclusive_control.Size = new System.Drawing.Size(1455, 540);
-            this.tabPage_exclusive_control.TabIndex = 1;
-            this.tabPage_exclusive_control.Text = "專屬";
-            this.tabPage_exclusive_control.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel17.ColumnCount = 1;
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel17.Controls.Add(this.tabControl_sub, 0, 3);
+            this.tableLayoutPanel17.Controls.Add(this.groupBox_arm_position, 0, 0);
+            this.tableLayoutPanel17.Controls.Add(this.groupBox6, 0, 1);
+            this.tableLayoutPanel17.Controls.Add(this.groupBox5, 0, 2);
+            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
+            this.tableLayoutPanel17.RowCount = 4;
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(677, 771);
+            this.tableLayoutPanel17.TabIndex = 7;
             // 
-            // button1
+            // tableLayoutPanel14
             // 
-            this.button1.Location = new System.Drawing.Point(433, 41);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 47);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Open";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(589, 42);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 47);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Close";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.tableLayoutPanel14.ColumnCount = 1;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel14.Controls.Add(this.groupBox_connect_disconnect, 0, 0);
+            this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel15, 0, 1);
+            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 2;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(1715, 870);
+            this.tableLayoutPanel14.TabIndex = 8;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1446, 628);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.tabControl_main);
-            this.Controls.Add(this.groupBox_connect_disconnect);
+            this.ClientSize = new System.Drawing.Size(1715, 870);
+            this.Controls.Add(this.tableLayoutPanel14);
             this.KeyPreview = true;
             this.Name = "MainForm";
             this.Text = "Robotic Arm Control Panel";
@@ -1876,14 +1908,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_arm_speed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_arm_acceleration)).EndInit();
             this.groupBox6.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_gripper_position)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_gripper_speed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_gripper_force)).EndInit();
+            this.groupBox9.ResumeLayout(false);
             this.tabControl_sub.ResumeLayout(false);
             this.tabPage_sub_inching.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
@@ -1893,6 +1924,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_inching_xy)).EndInit();
             this.tabPage_sub_position_record.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
+            this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.groupBox_position_record.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -1906,8 +1938,10 @@
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_camera)).EndInit();
-            this.tabControl_main.ResumeLayout(false);
-            this.tabPage_basic_control.ResumeLayout(false);
+            this.tabPage_sub_gripper.ResumeLayout(false);
+            this.tableLayoutPanel15.ResumeLayout(false);
+            this.tableLayoutPanel17.ResumeLayout(false);
+            this.tableLayoutPanel14.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1965,9 +1999,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown numericUpDown_arm_acceleration;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Button button_gripper_action;
         private System.Windows.Forms.NumericUpDown numericUpDown_gripper_position;
@@ -2036,11 +2067,15 @@
         private System.Windows.Forms.RadioButton radioButtonInchingModeContinuousWide;
         private System.Windows.Forms.RadioButton radioButtonInchingModeContinuousNarrow;
         private System.Windows.Forms.RadioButton radioButtonInchingModeSingle;
-        private System.Windows.Forms.TabControl tabControl_main;
-        private System.Windows.Forms.TabPage tabPage_basic_control;
-        private System.Windows.Forms.TabPage tabPage_exclusive_control;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonGripperOpen;
+        private System.Windows.Forms.Button buttonGripperClose;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
+        private System.Windows.Forms.TabPage tabPage_sub_gripper;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
     }
 }
 
